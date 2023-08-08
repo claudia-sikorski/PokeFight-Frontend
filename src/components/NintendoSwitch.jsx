@@ -7,7 +7,7 @@ const NitendoSwitch = () => {
         <div className="body">
           <div className="volume"></div>
           <div className="screen">
-            <div className="logo">
+            {/* <div className="logo">
               <div className="icon">
                 <div className="icon-part left"></div>
                 <div className="icon-part right"></div>
@@ -15,7 +15,7 @@ const NitendoSwitch = () => {
               <h1>
                 <span>Nintendo</span>Switch
               </h1>
-            </div>
+            </div> */}
           </div>
         </div>
 
