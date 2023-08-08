@@ -1,5 +1,7 @@
 body {
   display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
   font-size: 2em;
   font-family: "Open Sans", sans-serif;
@@ -14,8 +16,8 @@ body {
 
 .body {
   position: relative;
-  width: 20.125em;
-  height: 11.75em;
+  width: 30.125em;
+  height: 15.75em;
   padding: 0.375em 0.5625em;
   background-repeat: no-repeat;
   background-position: 0 0, 0 0, 100% 0;
@@ -103,11 +105,11 @@ body {
   display: flex;
   box-sizing: content-box;
   position: relative;
-  width: 16em;
-  height: 9em;
+  width: 26em;
+  height: 13em;
   color: #fff;
   font-family: "Montserrat", sans-serif;
-  background-color: #e60012;
+  background-color: white;
   border: 1em solid #000;
   border-left-width: 1.5em;
   border-right-width: 1.5em;
