@@ -1,3 +1,5 @@
+import "./styles/pokeList.css";
+
 const PokeList = ({ pokemons }) => {
   if (pokemons) {
     console.log("pokeList:", pokemons);
@@ -9,9 +11,12 @@ const PokeList = ({ pokemons }) => {
       {pokemons &&
         pokemons.map((pokemon) => {
           return (
-            <li key={pokemon.data.name}>
-              PokeID: {pokemon.data.id} Pokemon: {pokemon.data.name}
-            </li>
+            <div className="poke-list-container" key={pokemon.data.name}>
+              <li>
+                PokeID: {pokemon.data.base_experience} Pokemon:{" "}
+                {pokemon.data.name}
+              </li>
+            </div>
           );
         })}
     </>

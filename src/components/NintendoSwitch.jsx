@@ -1,21 +1,26 @@
 import "./styles/nitendoSwitch.css";
+import { Routes, Route } from "react-router-dom";
+import Home from "../components/Home";
+import PokeList from "../components/PokeList";
+import PokeDex from "../components/PokeDex";
+import PokeFight from "../components/PokeFight";
 
-const NitendoSwitch = () => {
+const NitendoSwitch = ({ pokemons }) => {
   return (
     <>
       <div className="switch">
         <div className="body">
           <div className="volume"></div>
           <div className="screen">
-            {/* <div className="logo">
-              <div className="icon">
-                <div className="icon-part left"></div>
-                <div className="icon-part right"></div>
-              </div>
-              <h1>
-                <span>Nintendo</span>Switch
-              </h1>
-            </div> */}
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route
+                path="/pokemon"
+                element={<PokeList pokemons={pokemons} />}
+              />
+              <Route path="/pokemon/:id" element={<PokeDex />} />
+              <Route path="/pokemon/fight" element={<PokeFight />} />
+            </Routes>
           </div>
         </div>
 
