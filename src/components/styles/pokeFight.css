@@ -1,0 +1,48 @@
+.pokefight_container {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1.3fr 0.4fr 1.3fr;
+  gap: 0px 0px;
+  background-image: url('https://s3.amazonaws.com/prod-media.gameinformer.com/styles/full/s3/2018/12/02/6a13488e/trainer_battles_arena.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". . pokefight_random_pokemon"
+    "pokefight_user_pokemon pokefight_button pokefight_random_pokemon"
+    "pokefight_user_pokemon . .";
+}
+
+.pokefight_user_pokemon {
+  grid-area: pokefight_user_pokemon;
+  border: 2px solid #242424;
+}
+
+.pokefight_random_pokemon {
+  grid-area: pokefight_random_pokemon;
+  border: 2px solid #242424;
+}
+
+.pokefight_button {
+  grid-area: pokefight_button;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #242424;
+}
+
+.pokefight_fightbtn {
+    padding: 10px 20px 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #242424;
+    color: #fff;
+}
+
+.pokefight_selectpokemon_btn {
+    padding: 10px 20px 10px 20px;
+    border: none;
+    border-radius: 5px;
+}
