@@ -1,0 +1,10 @@
+.poke-list-container {
+  display: flex;
+  flex-direction: row;
+  background-color: aqua;
+  margin: 0.5rem;
+  height: 50px;
+  word-wrap: break-word;
+  z-index: 3;
+  color: black;
+}
