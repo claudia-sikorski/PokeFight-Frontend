@@ -26,13 +26,12 @@
   grid-template-columns: 1.3fr 0.5fr 1.2fr;
   grid-template-rows: 0.4fr 0.7fr 1.2fr 1.1fr 0.4fr;
   gap: 0px 0px;
-
   grid-auto-flow: row;
   grid-template-areas:
     "pokeDexHeader pokeDexHeader pokeDexHeader"
     "pokeDexName pokeDexName pokeDexType"
-    "pokeDexImage pokeDexDetails pokeDexDetails"
-    "pokeDexImage pokeDexAttacks pokeDexAttacks"
+    "pokeDexImage pokeDexDetails pokeDexAttacks"
+    "pokeDexImage pokeDexDetails pokeDexAttacks"
     "pokeDexFooter pokeDexFooter pokeDexFooter";
 }
 
@@ -83,6 +82,7 @@
 .pokemonName h1 {
   font-size: 3rem;
   font-weight: 700;
+  color: white;
 }
 
 .pokemonName p {
@@ -90,11 +90,13 @@
   font-weight: 500;
   padding-left: 3px;
   margin-top: 5px;
+  color: white;
 }
 
 /* Pokemon Types */
 
 .pokemonType_Container {
+  /* border: solid; */
   grid-area: pokeDexType;
   display: flex;
   justify-content: flex-end;
@@ -148,13 +150,32 @@
 .pokeDexDetails {
   /* border: solid; */
   grid-area: pokeDexDetails;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.pokeDexDetails p:nth-child(odd) {
+  font-size: 1rem;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.pokeDexDetails p:nth-child(even) {
+  font-size: 1.8rem;
+  color: white;
+  margin-bottom: 15px;
 }
 
 /* Pokemon Attacks */
 
 .pokeDexAttacks {
-  /* border: solid; */
+  border: solid;
   grid-area: pokeDexAttacks;
+  margin-bottom: 15px;
+  margin-right: 30px;
 }
 
 /* Pokedex Footer */
