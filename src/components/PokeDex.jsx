@@ -64,7 +64,12 @@ const PokeDex = () => {
           <p>{`${weight} kg`}</p>
         </div>
         <div className="pokeDexAttacks"></div>
-        <div className="pokeDex_Footer"></div>
+        <div className="pokeDex_Footer">
+          <Link to={"/pokemon"} className="pokeDex_Footer_ExitBtn">
+            <div id="exitBtn">B</div>
+            <p>Back</p>
+          </Link>
+        </div>
       </div>
     </>
   );
