@@ -18,8 +18,7 @@ const PokeList = ({ pokemons }) => {
               <Link
                 key={pokemon.data.name}
                 className="poke-list-link"
-                to={`pokemon/${pokemon.data.id}`}
-                pokeid={pokemon.data.id}
+                to={`/pokemon/${pokemon.data.id}`}
               >
                 <img
                   src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
