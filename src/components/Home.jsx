@@ -4,10 +4,9 @@ const Home = () => {
   return (
     <>
       <div className="home-content">
-        
         <div className="home-menu">
           <img
-            src="./src/components/home-img/pokemon-logo.png"
+            src="src\assets\home-img\pokemon-logo.png"
             alt="Logo Pokemon"
             className="home-pkm-logo"
           />
