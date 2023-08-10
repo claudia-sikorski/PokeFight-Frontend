@@ -89,27 +89,10 @@
   font-size: 1rem;
   font-weight: 500;
   padding-left: 3px;
+  margin-top: 5px;
 }
 
 /* Pokemon Types */
-
-/* .pokemonType {
-  grid-area: pokeDexType;
-  margin-right: 30px;
-  margin-top: 20px;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.pokemonType_Normal {
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  background-color: #a8a899;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
 
 .pokemonType_Container {
   grid-area: pokeDexType;
