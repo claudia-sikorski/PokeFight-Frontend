@@ -1,14 +1,28 @@
+// Imports
 import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 import "./styles/PokeDex.css";
 import iconPokedex from "../assets/pokedex-icon.png";
+
 import { PokeTypes } from "./PokeTypes.jsx";
 
-// import Normal from "../assets/types/normal.png";
-
+// PokeDex Component
 const PokeDex = () => {
-  // let { id } = useParams();
+  let { id } = useParams();
+
+  const [pokeData, setPokeData] = useState(null);
+
   let types = ["normal"];
-  console.log(types);
+
+  useEffect(() => {
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`).then((response) => {
+      setPokeData(response.data);
+    });
+  }, [id, setPokeData]);
+
+  console.log(pokeData);
 
   return (
     <>
