@@ -18,6 +18,7 @@ const PokeDex = () => {
   const [types, setTypes] = useState([]);
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
+  const [moves, setMoves] = useState([]);
 
   useEffect(() => {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`).then((response) => {
@@ -27,8 +28,11 @@ const PokeDex = () => {
       setTypes(response.data.types.map((type) => type.type.name));
       setHeight(response.data.height / 10);
       setWeight(response.data.weight / 10);
+      setMoves(response.data.moves.map((move) => move.move.name));
     });
   }, [id]);
+
+  console.log(moves);
 
   return (
     <>
@@ -63,7 +67,21 @@ const PokeDex = () => {
           <p>Weight</p>
           <p>{`${weight} kg`}</p>
         </div>
-        <div className="pokeDexAttacks"></div>
+        <div className="pokeDex_Attacks">
+          <p id="attack_Header">Learned Attacks</p>
+          <p className="attack">
+            {moves[Math.floor(Math.random() * moves.length)]}
+          </p>
+          <p className="attack">
+            {moves[Math.floor(Math.random() * moves.length)]}
+          </p>
+          <p className="attack">
+            {moves[Math.floor(Math.random() * moves.length)]}
+          </p>
+          <p className="attack">
+            {moves[Math.floor(Math.random() * moves.length)]}
+          </p>
+        </div>
         <div className="pokeDex_Footer">
           <Link to={"/pokemon"} className="pokeDex_Footer_ExitBtn">
             <div id="exitBtn">B</div>
