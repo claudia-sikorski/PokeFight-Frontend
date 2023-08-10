@@ -4,6 +4,7 @@ const Home = () => {
   return (
     <>
       <div className="home-content">
+        
         <div className="home-menu">
           <img
             src="./src/components/home-img/pokemon-logo.png"

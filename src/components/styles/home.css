@@ -1,40 +1,37 @@
-.home-pkm-logo {
-  height: 120px;
-  /* display:flex ; */
-  /* flex-wrap: nowrap;
-    justify-self: center; */
-}
 
-.home-menu {
-  /* border:solid; */
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 500px;
-  /* height: 100px; */
-}
+  .screen {
+   
+    background-image: url(../../assets/home-img/home-bg-gif.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .home-pkm-logo{
+    width:250px;
+    margin-top: 21px;
+    margin-left:15px
+  }
 
-.home-exit-img {
-  height: 30px;
-  width: 30px;
-  /* margin-left: 600px; */
-  cursor: pointer;
-}
+  .home-menu{
+    display: flex;
+    flex-direction: column;
+    width:500px;
+    
+  }
 
-.home-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  /* top: 230px; */
-  z-index: 2;
-  /* height: 413px; */
-  /* overflow: hidden; */
-  /* margin-left: 169px; */
-  width: 26em;
-  height: 13em;
-}
+  .home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 230px;
+    z-index: 2;
+    margin-left: 169px;
+    width: 26em;
+    height: 13em;
+    
+  }
 
 .pokedex-btn {
   height: 90px;
@@ -75,21 +72,14 @@
   font-family: "pokmon";
 }
 
-@font-face {
-  font-family: "pokmon";
-  src: url(../pokmon/Pokemon-Solid.ttf) format("truetype");
-}
 
-.exit-btn {
-  /* border: solid; */
-  margin-top: 50px;
-  height: 1px;
-  margin-right: 50px;
-}
 
-.btn-effect {
-  border-radius: 38px;
-}
+
+  @font-face {
+    font-family: 'pokmon';
+    src: url(../../assets/pokmon/Pokemon-Solid.ttf) format('truetype');
+        
+  }
 
 .poke-home-link {
   display: flex;

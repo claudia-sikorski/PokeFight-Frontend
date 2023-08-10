@@ -34,7 +34,7 @@ const NitendoSwitch = ({
                 }
               />
               <Route path="/pokemon/:id" element={<PokeDex />} />
-              <Route path="/pokemon/fight" element={<PokeFight />} />
+              <Route path="/pokemon/fight" element={<PokeFight pokemons={pokemons}/>} />
             </Routes>
           </div>
         </div>
