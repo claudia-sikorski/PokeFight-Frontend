@@ -107,7 +107,7 @@ body {
   position: relative;
   width: 26em;
   height: 13em;
-  color: #fff;
+  /* color: #fff; */
   font-family: "Montserrat", sans-serif;
   background-color: white;
   border: 1em solid #000;
