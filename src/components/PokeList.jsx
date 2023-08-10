@@ -1,6 +1,5 @@
 import "./styles/pokeList.css";
 import { Link } from "react-router-dom";
-import iconPokedex from "../assets/pokedex-icon.png";
 
 const PokeList = ({ pokemons }) => {
   // if (pokemons) {

@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "pokmon";
+  src: url(../pokmon/Pokemon-Solid.ttf) format("truetype");
+}
+
 .pokeList_Background {
   width: 100%;
   height: 100%;
@@ -49,8 +54,10 @@
 }
 
 .poke-list-link p {
+  font-family: "pokmon";
   padding: 30px 30px 30px 30px;
   text-align: center;
+  letter-spacing: 0.3rem;
 }
 
 .poke-list-link:hover {
