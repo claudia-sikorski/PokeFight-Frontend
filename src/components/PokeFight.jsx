@@ -1,11 +1,12 @@
 import "./styles/pokeFight.css";
+import PokemonDropdown from "./DropdownPokemon";
 
-const PokeFight = () => {
+const PokeFight = ({ pokemons }) => {
   return (
     <>
       <div className="pokefight_container">
         <div className="pokefight_user_pokemon">
-          <button className="pokefight_selectpokemon_btn">Select your Pokemon!</button>
+          <PokemonDropdown pokemons={pokemons} />
         </div>
         <div className="pokefight_random_pokemon"></div>
         <div className="pokefight_button">
