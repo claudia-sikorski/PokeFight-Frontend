@@ -7,7 +7,7 @@ function App() {
   // const [loading, setLoading] = useState(true);
   const [pokemons, setPokemons] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postPerPage, setPostPerPage] = useState(10);
+  const [postPerPage, setPostPerPage] = useState(8);
 
   const [currentUrl, setCurrentUrl] = useState(
     "https://pokeapi.co/api/v2/pokemon?limit=151"
