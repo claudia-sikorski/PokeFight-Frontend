@@ -15,7 +15,7 @@ const Home = () => {
 
         </button>
 
-        <button className="home-pkfight-btn btn-effect">
+        <button className="home-pkfight-btn btn-effect ">
 
         <img src="./src/assets/home-img/combat.png" alt="" className="pokedex-btn" />
           
