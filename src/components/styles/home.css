@@ -75,21 +75,15 @@
   font-family: "pokmon";
 }
 
-@font-face {
-  font-family: "pokmon";
-  src: url(../pokmon/Pokemon-Solid.ttf) format("truetype");
-}
 
-.exit-btn {
-  /* border: solid; */
-  margin-top: 50px;
-  height: 1px;
-  margin-right: 50px;
-}
 
-.btn-effect {
-  border-radius: 38px;
-}
+
+
+  @font-face {
+    font-family: 'pokmon';
+    src: url(../../assets/pokmon/Pokemon-Solid.ttf) format('truetype');
+        
+  }
 
 .poke-home-link {
   display: flex;
