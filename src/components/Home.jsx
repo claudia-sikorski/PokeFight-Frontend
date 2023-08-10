@@ -4,9 +4,7 @@ const Home = () => {
   return (
     <>
       <div className="home-content">
-        <div className="exit-btn">
-          <img src="./src/assets/home-img/exit-button.png" alt="exit button" className="home-exit-img" />
-        </div>
+        
         <div className="home-menu">
           <img
             src="./src/components/home-img/pokemon-logo.png"
