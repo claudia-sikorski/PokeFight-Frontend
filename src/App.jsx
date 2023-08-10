@@ -6,14 +6,14 @@ import NitendoSwitch from "./components/NintendoSwitch";
 function App() {
   // const [loading, setLoading] = useState(true);
   const [pokemons, setPokemons] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postPerPage, setPostPerPage] = useState(8);
 
   const [currentUrl, setCurrentUrl] = useState(
-    "https://pokeapi.co/api/v2/pokemon?limit=150"
+    "https://pokeapi.co/api/v2/pokemon?limit=151"
   );
-  const [nextUrl, setNextUrl] = useState();
-  const [previousUrl, setpreviousUrl] = useState();
 
-  // console.log(pokemons && pokemons.allData);
+  console.log(pokemons && pokemons.allData);
 
   useEffect(() => {
     axios.get(currentUrl).then((response) => {
@@ -26,6 +26,14 @@ function App() {
       );
     });
   }, [currentUrl]);
+
+  const lastPostIndex = currentPage * postPerPage;
+  const firstPostIndex = lastPostIndex - postPerPage;
+
+  const currentPosts =
+    pokemons.allData && pokemons.allData.slice(firstPostIndex, lastPostIndex);
+
+  console.log("current:", currentPosts);
 
   return (
     <>
