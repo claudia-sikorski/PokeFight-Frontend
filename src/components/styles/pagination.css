@@ -3,8 +3,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background-color: #c33726;
-  background: linear-gradient(to bottom, #c33726 50%, #ffffff 50%);
+  background: linear-gradient(to bottom, #c33726 50%, #2d2d2d 1%, white 56%);
   height: 38px;
   width: 38px;
   font-weight: bold;
@@ -21,7 +20,7 @@
   align-items: center;
   cursor: pointer;
   background-color: #005b96;
-  background: linear-gradient(to bottom, #005b96 50%, #ffffff 50%);
+  background: linear-gradient(to bottom, #005b96 50%, #2d2d2d 1%, #ffffff 56%);
   height: 42px;
   width: 42px;
   font-weight: bold;
