@@ -33,36 +33,6 @@
   cursor: pointer;
 }
 
-.home-pkm-btn {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  cursor: pointer;
-  margin-bottom: 12px;
-  width: 300px;
-  height: 90px;
-}
-
-.home-pkfight-btn {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  cursor: pointer;
-  margin-bottom: 12px;
-  width: 300px;
-  height: 90px;
-}
-
-.home-score-btn {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  cursor: pointer;
-  margin-bottom: 12px;
-  width: 300px;
-  height: 90px;
-}
-
 .elt1 {
   font-family: "pokmon";
 }
