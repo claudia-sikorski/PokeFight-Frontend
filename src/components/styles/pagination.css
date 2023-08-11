@@ -1,0 +1,54 @@
+.pagination button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: linear-gradient(to bottom, #c33726 50%, #2d2d2d 1%, white 56%);
+  height: 38px;
+  width: 38px;
+  font-weight: bold;
+  border-radius: 50%;
+  margin-right: 0.3rem;
+  border: none;
+  position: relative;
+  box-shadow: inset 0.125em -0.125em 0.375em rgba(0, 0, 0, 0.5);
+}
+
+.pagination button.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: #005b96;
+  background: linear-gradient(to bottom, #005b96 50%, #2d2d2d 1%, #ffffff 56%);
+  height: 42px;
+  width: 42px;
+  font-weight: bold;
+  border-radius: 50%;
+  margin-right: 0.3rem;
+  border: none;
+  position: relative;
+  box-shadow: inset 0.125em -0.125em 0.375em rgba(0, 0, 0, 0.5);
+}
+
+.poke-ball-white {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  font-size: 9px;
+  font-weight: bolder;
+  border: 2px solid #2d2d2d;
+}
+
+.pagination {
+  display: flex;
+  align-items: end;
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.6rem;
+  z-index: 10;
+}

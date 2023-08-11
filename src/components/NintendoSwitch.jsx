@@ -1,11 +1,18 @@
 import "./styles/nitendoSwitch.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import Home from "../components/Home";
 import PokeList from "../components/PokeList";
 import PokeDex from "../components/PokeDex";
 import PokeFight from "../components/PokeFight";
 
-const NitendoSwitch = ({ pokemons }) => {
+const NitendoSwitch = ({
+  pokemons,
+  pokemonsPagination,
+  totalPosts,
+  postsPerPage,
+  setCurrentPage,
+  currentPage,
+}) => {
   return (
     <>
       <div className="switch">
@@ -16,7 +23,15 @@ const NitendoSwitch = ({ pokemons }) => {
               <Route path="/" element={<Home />} />
               <Route
                 path="/pokemon"
-                element={<PokeList pokemons={pokemons} />}
+                element={
+                  <PokeList
+                    pokemons={pokemonsPagination}
+                    totalPosts={totalPosts}
+                    postsPerPage={postsPerPage}
+                    setCurrentPage={setCurrentPage}
+                    currentPage={currentPage}
+                  />
+                }
               />
               <Route path="/pokemon/:id" element={<PokeDex />} />
               <Route path="/pokemon/fight" element={<PokeFight pokemons={pokemons}/>} />
@@ -48,14 +63,14 @@ const NitendoSwitch = ({ pokemons }) => {
 
           <div className="stick"></div>
           <div className="start"></div>
-          <div className="home"></div>
+          <Link to={"/"}>
+            <div className="home"></div>
+          </Link>
           <div className="shoulder r"></div>
         </div>
       </div>
     </>
   );
 };
-
-
 
 export default NitendoSwitch;
