@@ -13,12 +13,14 @@ const PokeFight = ({ pokemons }) => {
   return (
     <>
       <div className="pokefight_container">
-        <PokeFightHpBar fight={hp} />
+        <div className="test"></div>
+        
         <div className="pokefight_user_pokemon">
-          <PokemonDropdown pokemons={pokemons} />
+          <PokemonDropdown pokemons={pokemons} hp={hp} />
         </div>
         <div className="pokefight_random_pokemon">
           <RandomPokemon pokemons={pokemons} />
+          <PokeFightHpBar fight={hp} />
         </div>
         <div className="pokefight_button">
           <button onClick={fight} className="pokefight_fightbtn">
