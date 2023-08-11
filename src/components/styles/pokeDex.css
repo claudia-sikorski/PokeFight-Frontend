@@ -212,26 +212,59 @@
   justify-content: flex-end;
 }
 
-.pokeDex_Footer_ExitBtn {
+/* Active */
+
+.pokeDex_Footer_Btn {
+  margin-right: 20px;
   display: flex;
   align-items: center;
-  margin-right: 30px;
   text-decoration: none;
   z-index: 3;
 }
 
-.pokeDex_Footer_ExitBtn p {
+.pokeDex_Footer_Btn p {
   font-size: 1rem;
   font-weight: 400;
   color: black;
 }
 
-#exitBtn {
+#Btn {
   width: 20px;
   height: 20px;
   margin-right: 5px;
   border-radius: 20px;
-  background-color: #0a2951;
+  background-color: #132641;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Disabled */
+
+.disabled_Link {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.disabled_Link p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #bebebe;
+}
+
+#disabled_Btn {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  border-radius: 20px;
+  background-color: #bebebe;
   font-size: 0.8rem;
   font-weight: 700;
   color: white;

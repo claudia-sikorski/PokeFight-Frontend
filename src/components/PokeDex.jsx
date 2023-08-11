@@ -1,6 +1,12 @@
 // Imports
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faAngleDoubleLeft,
+  faAngleDoubleRight,
+} from "@fortawesome/free-solid-svg-icons";
+
 import axios from "axios";
 
 import "./styles/PokeDex.css";
@@ -19,6 +25,9 @@ const PokeDex = () => {
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
   const [moves, setMoves] = useState([]);
+
+  let nextPokemon = number + 1;
+  const previousPokemon = number - 1;
 
   useEffect(() => {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`).then((response) => {
@@ -83,9 +92,33 @@ const PokeDex = () => {
           </p>
         </div>
         <div className="pokeDex_Footer">
-          <Link to={"/pokemon"} className="pokeDex_Footer_ExitBtn">
-            <div id="exitBtn">B</div>
-            <p>Back</p>
+          <Link
+            to={`/pokemon/${previousPokemon}`}
+            className={number < 2 ? "disabled_Link" : "pokeDex_Footer_Btn"}
+          >
+            <div id={number < 2 ? "disabled_Btn" : "Btn"}>
+              <FontAwesomeIcon
+                icon={faAngleDoubleLeft}
+                style={{ color: "#ffffff" }}
+              />
+            </div>
+            <p>Previous</p>
+          </Link>
+          <Link
+            to={`/pokemon/${nextPokemon}`}
+            className={number > 150 ? "disabled_Link" : "pokeDex_Footer_Btn"}
+          >
+            <div id={number > 150 ? "disabled_Btn" : "Btn"}>
+              <FontAwesomeIcon
+                icon={faAngleDoubleRight}
+                style={{ color: "#ffffff" }}
+              />
+            </div>
+            <p>Next</p>
+          </Link>
+          <Link to={"/pokemon"} className="pokeDex_Footer_Btn">
+            <div id="Btn">B</div>
+            <p>Exit</p>
           </Link>
         </div>
       </div>
