@@ -1,8 +1,9 @@
 import "./styles/dropdown.css";
 import Select from "react-select";
 import { useState } from "react";
+import PokeFightHpBar from "./PokeFightHpBar";
 
-const PokemonDropdown = ({ pokemons }) => {
+const PokemonDropdown = ({ pokemons, hp }) => {
   const [userSelect, setUserSelect] = useState(null);
 
   const onChangeHandler = (selectedOption) => {
@@ -31,8 +32,8 @@ const PokemonDropdown = ({ pokemons }) => {
         )}
         </div>
         }
-        {userSelect && 
-        <img src={userSelect && userSelect.sprites.back_default} />
+        {userSelect && <><PokeFightHpBar fight={hp} />
+        <img src={userSelect && userSelect.sprites.back_default} /></>
       }
     </>
   );
