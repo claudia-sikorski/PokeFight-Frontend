@@ -1,0 +1,21 @@
+h1 {
+  color: aqua;
+}
+
+label {
+  color: white;
+  font-weight: bold;
+  margin-right: 1rem;
+  /* -webkit-text-stroke: 1px rgba(126, 126, 126, 0.811); */
+}
+
+.poke-fight-hp-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.poke-fight-hp-bar meter {
+  height: 50px;
+  width: 190px;
+}

@@ -55,7 +55,7 @@
 
 .poke-home-link p {
   font-family: "pokmon";
-  padding: 30px 30px 30px 30px;
+  padding-left: 30px;
   text-align: center;
   letter-spacing: 0.3rem;
 }

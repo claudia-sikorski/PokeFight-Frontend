@@ -3,10 +3,10 @@ import "./styles/home.css";
 const Home = () => {
   return (
     <>
-    {/* <audio loop = 'true' autoplay ='true'>
-  <source src="/src/assets/sounds/pikapika.mp3" type="audio/mpeg" />
-  </audio> */}
-  
+      {/* <audio loop="true" autoplay="true">
+        <source src="/src/assets/sounds/pikapika.mp3" type="audio/mpeg" />
+      </audio> */}
+
       <div className="home-content">
         <div className="home-menu">
           <img
@@ -18,7 +18,8 @@ const Home = () => {
             <div className="poke-home-header">
               <img
                 src="./src/assets/home-img/pokedex-logo.png"
-                alt="Pokedex" className="menu-button"
+                alt="Pokedex"
+                className="menu-button"
               />
             </div>
 
@@ -27,8 +28,9 @@ const Home = () => {
           <Link to={"/pokemon/fight"} className="poke-home-link">
             <div className="poke-home-header">
               <img
-                 src="./src/assets/home-img/combat.png"
-                alt="Fght" className="menu-button"
+                src="./src/assets/home-img/combat.png"
+                alt="Fght"
+                className="menu-button"
               />
             </div>
             <p className="elt1">POKEFIGHT</p>
@@ -36,15 +38,15 @@ const Home = () => {
           <Link className="poke-home-link">
             <div className="poke-list-header">
               <img
-                 src="./src/assets/home-img/score-logo.png"
-                alt="" className="menu-button"
+                src="./src/assets/home-img/score-logo.png"
+                alt=""
+                className="menu-button"
               />
             </div>
             <p className="elt1">HIGHSCORES</p>
           </Link>
         </div>
       </div>
-     
     </>
   );
 };
