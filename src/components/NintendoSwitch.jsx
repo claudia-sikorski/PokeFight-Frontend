@@ -77,7 +77,9 @@ const NitendoSwitch = ({
           </div>
 
           <div className="stick"></div>
-          <div className="start"></div>
+          <Link onClick={playSong}>
+            <div className="start"></div>
+          </Link>
           <Link to={"/"}>
             <div className="home"></div>
           </Link>
