@@ -3,6 +3,7 @@ import "./styles/home.css";
 import { useState } from "react";
 const Home = ({ playSong, pauseSong }) => {
   const [start, setStart] = useState(false);
+
   function showHome() {
     setStart(true);
     playSong();
