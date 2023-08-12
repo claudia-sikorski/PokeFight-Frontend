@@ -13,7 +13,7 @@ function App() {
     "https://pokeapi.co/api/v2/pokemon?limit=151"
   );
 
-  console.log(pokemons && pokemons.allData);
+  // console.log(pokemons && pokemons.allData);
 
   useEffect(() => {
     axios.get(currentUrl).then((response) => {

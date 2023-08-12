@@ -5,23 +5,29 @@ import PokeFightHpBar from "./PokeFightHpBar";
 import { useState } from "react";
 
 const PokeFight = ({ pokemons }) => {
-  const [hp, setHp] = useState(100);
+  const [enemyFightHp, setEnemyFightHp] = useState(100);
+  const [fightHp, setFightHp] = useState(100);
   const [userSelect, setUserSelect] = useState(null);
 
   const onChangeHandler = (selectedOption) => {
     setUserSelect(selectedOption.value);
   };
 
-  console.log(userSelect);
+  let randomIndex = Math.floor(Math.random() * 151);
+  let randomPokemon = pokemons && pokemons[randomIndex];
 
-  if (!pokemons) return <></>;
-  let allPokemons = pokemons.map((poke) => poke.data);
-  let randomIndex = Math.floor(Math.random() * allPokemons.length);
-  let pokemon = allPokemons[randomIndex];
+  const userAttack = userSelect && userSelect.stats[1].base_stat;
+  const enemyHp = randomPokemon && randomPokemon.data.stats[0].base_stat;
 
-  function fight(userAttack, enemyHp) {
-    setHp(100 - 80);
+  function fight() {
+    setEnemyFightHp(enemyHp - userAttack / 3);
   }
+
+  function newGame() {
+    setUserSelect(null);
+    setEnemyFightHp(100);
+  }
+
   return (
     <>
       <div className="pokefight_container">
@@ -30,18 +36,21 @@ const PokeFight = ({ pokemons }) => {
         <div className="pokefight_user_pokemon">
           <PokemonDropdown
             pokemons={pokemons}
-            hp={hp}
             userSelect={userSelect}
             onChangeHandler={onChangeHandler}
+            fight={fightHp}
           />
         </div>
         <div className="pokefight_random_pokemon">
-          <RandomPokemon pokemon={pokemon} />
-          <PokeFightHpBar fight={hp} />
+          <RandomPokemon pokemon={randomPokemon} />
+          <PokeFightHpBar fight={enemyFightHp} />
         </div>
         <div className="pokefight_button">
           <button onClick={fight} className="pokefight_fightbtn">
             Fight
+          </button>
+          <button className="pokefight_fightbtn " onClick={newGame}>
+            New Game
           </button>
         </div>
       </div>

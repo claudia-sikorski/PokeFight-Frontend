@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./styles/home.css";
 import { useState } from "react";
-const Home = ({ playSong, pauseSong }) => {
+const Home = ({ playSong }) => {
   const [start, setStart] = useState(false);
 
   function showHome() {

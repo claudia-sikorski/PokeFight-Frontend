@@ -16,7 +16,9 @@ const NitendoSwitch = ({
   let audio = new Audio("src/assets/sounds/Pokemon_Theme_Song.mp3");
 
   function playSong() {
-    audio.play();
+    if (audio) {
+      audio.play();
+    }
   }
 
   function pauseSong() {
