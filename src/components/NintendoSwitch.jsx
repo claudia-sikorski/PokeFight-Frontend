@@ -13,6 +13,16 @@ const NitendoSwitch = ({
   setCurrentPage,
   currentPage,
 }) => {
+  let audio = new Audio("src/assets/sounds/Pokemon_Theme_Song.mp3");
+
+  function playSong() {
+    audio.play();
+  }
+
+  function pauseSong() {
+    audio.pause();
+  }
+
   return (
     <>
       <div className="switch">
@@ -20,7 +30,7 @@ const NitendoSwitch = ({
           <div className="volume"></div>
           <div className="screen">
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home playSong={playSong} />} />
               <Route
                 path="/pokemon"
                 element={
@@ -34,7 +44,10 @@ const NitendoSwitch = ({
                 }
               />
               <Route path="/pokemon/:id" element={<PokeDex />} />
-              <Route path="/pokemon/fight" element={<PokeFight pokemons={pokemons}/>} />
+              <Route
+                path="/pokemon/fight"
+                element={<PokeFight pokemons={pokemons} />}
+              />
             </Routes>
           </div>
         </div>
@@ -48,7 +61,9 @@ const NitendoSwitch = ({
           </div>
 
           <div className="stick"></div>
-          <div className="select"></div>
+          <Link onClick={pauseSong}>
+            <div className="select"></div>
+          </Link>
           <div className="capture"></div>
           <div className="shoulder l"></div>
         </div>
