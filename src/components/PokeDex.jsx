@@ -33,7 +33,7 @@ const PokeDex = () => {
     });
   }, [id, setPokeData]);
 
-  console.log(pokeData);
+  // console.log(pokeData);
 
   return (
     <>
