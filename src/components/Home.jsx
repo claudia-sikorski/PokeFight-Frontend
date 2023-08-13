@@ -56,7 +56,7 @@ const Home = ({ playSong }) => {
                 <Link className="poke-home-link">
                   <div className="poke-list-header">
                     <img
-                      src="./src/assets/home-img/icons8-hightscore-pokemon-96.png"
+                      src="./src/assets/home-img/highscore.png"
                       alt=""
                       className="menu-button"
                     />
