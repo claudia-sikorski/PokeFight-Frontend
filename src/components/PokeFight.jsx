@@ -9,19 +9,25 @@ const PokeFight = ({ pokemons }) => {
   const [fightHp, setFightHp] = useState(100);
   const [userSelect, setUserSelect] = useState(null);
   const [selectPokemonMessage, setSelectPokemonMessage] = useState(false);
+  const [randomPokemon, setRandomPokemon] = useState();
 
   const onChangeHandler = (selectedOption) => {
     setUserSelect(selectedOption.value);
     setSelectPokemonMessage(false);
+    randomPokemonHandler();
   };
 
-  let randomIndex = Math.floor(Math.random() * 151);
-  let randomPokemon = pokemons && pokemons[randomIndex];
+  function randomPokemonHandler() {
+    if (pokemons) {
+      let randomIndex = Math.floor(Math.random() * 151);
+      setRandomPokemon(pokemons[randomIndex]);
+    }
+  }
 
   const userAttack = userSelect && userSelect.stats[1].base_stat;
   const enemyHp = randomPokemon && randomPokemon.data.stats[0].base_stat;
 
-  function fight() {
+  function userFight() {
     if (!userSelect) {
       setSelectPokemonMessage(true);
     } else {
@@ -54,7 +60,7 @@ const PokeFight = ({ pokemons }) => {
         </div>
 
         <div className="pokefight_button">
-          <button onClick={fight} className="pokefight_fightbtn">
+          <button onClick={userFight} className="pokefight_fightbtn">
             Attack!
           </button>
           <button className="pokefight_fightbtn " onClick={newGame}>
