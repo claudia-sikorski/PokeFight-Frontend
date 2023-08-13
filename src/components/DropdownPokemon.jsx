@@ -37,7 +37,6 @@ const PokemonDropdown = ({
         <>
           <PokeFightHpBar fight={userFightHp} />
           <img src={userSelect && userSelect.sprites.back_default} />
-          <RandomPokemon pokemon={randomPokemon} enemyFightHp={enemyFightHp} />
         </>
       )}
     </>

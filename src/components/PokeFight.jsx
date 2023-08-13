@@ -7,10 +7,10 @@ import { useState } from "react";
 const PokeFight = ({ pokemons }) => {
   const [enemyFightHp, setEnemyFightHp] = useState(100);
   const [userFightHp, setUserFightHp] = useState(100);
-  const [fightHp, setFightHp] = useState(100);
   const [userSelect, setUserSelect] = useState(null);
   const [selectPokemonMessage, setSelectPokemonMessage] = useState(false);
   const [randomPokemon, setRandomPokemon] = useState();
+  console.log("cries:", pokemons);
 
   const onChangeHandler = (selectedOption) => {
     setUserSelect(selectedOption.value);
@@ -50,6 +50,7 @@ const PokeFight = ({ pokemons }) => {
   function newGame() {
     setUserSelect(null);
     setEnemyFightHp(100);
+    setUserFightHp(100);
   }
 
   return (
@@ -60,12 +61,19 @@ const PokeFight = ({ pokemons }) => {
             You need to select a Pokemon!
           </p>
         )}
+        {userSelect && (
+          <div className="pokefight_random_pokemon">
+            <RandomPokemon
+              pokemon={randomPokemon}
+              enemyFightHp={enemyFightHp}
+            />
+          </div>
+        )}
         <div className="pokefight_user_pokemon">
           <PokemonDropdown
             pokemons={pokemons}
             userSelect={userSelect}
             onChangeHandler={onChangeHandler}
-            fight={fightHp}
             randomPokemon={randomPokemon}
             enemyFightHp={enemyFightHp}
             userFightHp={userFightHp}
