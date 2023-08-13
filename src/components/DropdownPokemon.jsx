@@ -10,6 +10,7 @@ const PokemonDropdown = ({
   onChangeHandler,
   randomPokemon,
   enemyFightHp,
+  userFightHp,
 }) => {
   // console.log('userselect:', userSelect);
 
@@ -34,7 +35,7 @@ const PokemonDropdown = ({
       )}
       {userSelect && (
         <>
-          <PokeFightHpBar fight={fight} />
+          <PokeFightHpBar fight={userFightHp} />
           <img src={userSelect && userSelect.sprites.back_default} />
           <RandomPokemon pokemon={randomPokemon} enemyFightHp={enemyFightHp} />
         </>
