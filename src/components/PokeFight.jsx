@@ -8,6 +8,7 @@ const PokeFight = ({ pokemons }) => {
   const [enemyFightHp, setEnemyFightHp] = useState(100);
   const [fightHp, setFightHp] = useState(100);
   const [userSelect, setUserSelect] = useState(null);
+  const [selectPokemonMessage, setSelectPokemonMessage] = useState(false);
 
   const onChangeHandler = (selectedOption) => {
     setUserSelect(selectedOption.value);
@@ -20,7 +21,11 @@ const PokeFight = ({ pokemons }) => {
   const enemyHp = randomPokemon && randomPokemon.data.stats[0].base_stat;
 
   function fight() {
-    setEnemyFightHp(enemyHp - userAttack / 3);
+    if (userSelect === null) {
+      setSelectPokemonMessage(true);
+    } else {
+      setEnemyFightHp(enemyHp - userAttack / 3);
+    }
   }
 
   function newGame() {
@@ -31,7 +36,11 @@ const PokeFight = ({ pokemons }) => {
   return (
     <>
       <div className="pokefight_container">
-        <div className="test"></div>
+        {selectPokemonMessage && (
+          <p className="select-pokemon-message">
+            You need to select a Pokemon!
+          </p>
+        )}
         <div className="pokefight_user_pokemon">
           <PokemonDropdown
             pokemons={pokemons}
