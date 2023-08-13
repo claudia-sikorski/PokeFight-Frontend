@@ -12,6 +12,7 @@ const PokeFight = ({ pokemons }) => {
 
   const onChangeHandler = (selectedOption) => {
     setUserSelect(selectedOption.value);
+    setSelectPokemonMessage(false);
   };
 
   let randomIndex = Math.floor(Math.random() * 151);
@@ -21,7 +22,7 @@ const PokeFight = ({ pokemons }) => {
   const enemyHp = randomPokemon && randomPokemon.data.stats[0].base_stat;
 
   function fight() {
-    if (userSelect === null) {
+    if (!userSelect) {
       setSelectPokemonMessage(true);
     } else {
       setEnemyFightHp(enemyHp - userAttack / 3);
