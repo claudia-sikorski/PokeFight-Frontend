@@ -54,7 +54,7 @@ const PokeFight = ({ pokemons }) => {
 
         <div className="pokefight_button">
           <button onClick={fight} className="pokefight_fightbtn">
-            Fight
+            Attack!
           </button>
           <button className="pokefight_fightbtn " onClick={newGame}>
             New Game
