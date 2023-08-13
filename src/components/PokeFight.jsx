@@ -32,19 +32,17 @@ const PokeFight = ({ pokemons }) => {
     <>
       <div className="pokefight_container">
         <div className="test"></div>
-
         <div className="pokefight_user_pokemon">
           <PokemonDropdown
             pokemons={pokemons}
             userSelect={userSelect}
             onChangeHandler={onChangeHandler}
             fight={fightHp}
+            randomPokemon={randomPokemon}
+            enemyFightHp={enemyFightHp}
           />
         </div>
-        <div className="pokefight_random_pokemon">
-          <RandomPokemon pokemon={randomPokemon} />
-          <PokeFightHpBar fight={enemyFightHp} />
-        </div>
+
         <div className="pokefight_button">
           <button onClick={fight} className="pokefight_fightbtn">
             Fight
