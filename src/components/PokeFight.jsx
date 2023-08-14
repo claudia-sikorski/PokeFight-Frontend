@@ -113,15 +113,16 @@ const PokeFight = ({ pokemons }) => {
           >
             Attack!
           </button>
-          {/* <button onClick={computerFight} className="pokefight_fightbtn">
-            ComputerAttack test!
-          </button> */}
-          {enemyFightHp <= 0 ||
-            (userFightHp <= 0 && (
-              <button className="pokefight_fightbtn " onClick={newGame}>
-                New Game
-              </button>
-            ))}
+          {userFightHp <= 0 && (
+            <button className="pokefight_fightbtn " onClick={newGame}>
+              New Game
+            </button>
+          )}
+          {enemyFightHp <= 0 && (
+            <button className="pokefight_fightbtn " onClick={newGame}>
+              New Game
+            </button>
+          )}
         </div>
       </div>
     </>
