@@ -18,6 +18,7 @@ const PokeFight = ({ pokemons }) => {
     setUserSelect(selectedOption.value);
     setSelectPokemonMessage(false);
     randomPokemonHandler();
+    randomActivePlayerHandler();
   };
 
   function randomPokemonHandler() {
@@ -27,11 +28,14 @@ const PokeFight = ({ pokemons }) => {
     }
   }
 
-  // function randomActivePlayerHandler() {
-  //   let randomActivPlayerIndex = Math.floor(Math.random() * 2);
-  //   console.log(randomActivPlayerIndex);
-  //   setActivePlayer(activePlayer[randomActivPlayerIndex]);
-  // }
+  function randomActivePlayerHandler() {
+    let randomActivPlayerIndex = Math.floor(Math.random() * 2);
+    if (randomActivPlayerIndex === 0) {
+      setActivePlayer(true);
+    } else if (randomActivPlayerIndex === 1) {
+      setActivePlayer(false);
+    }
+  }
 
   const userHp = userSelect && userSelect.stats[0].base_stat;
   const userAttack = userSelect && userSelect.stats[1].base_stat;
