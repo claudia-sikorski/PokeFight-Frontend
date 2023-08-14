@@ -2,35 +2,35 @@
   display: grid;
   width: 100%;
   height: 100%;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1.3fr 0.4fr 1.3fr;
+  grid-template-columns: 1fr 0.8fr 1fr;
+  grid-template-rows: 1.1fr 0.6fr 1.3fr 0.7fr 1.3fr;
   gap: 0px 0px;
   background-image: url("https://s3.amazonaws.com/prod-media.gameinformer.com/styles/full/s3/2018/12/02/6a13488e/trainer_battles_arena.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   grid-auto-flow: row;
   grid-template-areas:
-    "test test pokefight_random_pokemon"
+    ". . pokefight_random_pokemon"
+    ". pokefight_button pokefight_random_pokemon"
+    "pokefight_user_pokemon pokefight_button pokefight_random_pokemon"
     "pokefight_user_pokemon pokefight_button pokefight_random_pokemon"
     "pokefight_user_pokemon . .";
 }
 
-.test {
-  grid-area: test;
-}
-
 .pokefight_user_pokemon {
   grid-area: pokefight_user_pokemon;
-  border: 2px solid #242424;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
   background-color: transparent;
 }
 
 .pokefight_random_pokemon {
   grid-area: pokefight_random_pokemon;
-  border: 2px solid #242424;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
 }
 
 .pokefight_button {
@@ -38,7 +38,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid #242424;
+  flex-direction: column;
 }
 
 /* .pokefight_new_fight_button {
@@ -60,6 +60,7 @@
   font-weight: bold;
   cursor: pointer;
   margin: 5px;
+  width: 200px;
 }
 
 .pokefight_fightbtn:hover {
@@ -82,6 +83,20 @@
 }
 
 .pokefight_random_pokemon_img {
-  width: 70%;
+  width: 220px;
+  height: auto;
   aspect-ratio: 1;
+}
+
+.user_pokemon_top {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.user_pokemon_bottom {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
