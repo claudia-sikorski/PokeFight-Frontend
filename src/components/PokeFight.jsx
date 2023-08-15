@@ -56,7 +56,7 @@ const PokeFight = ({ pokemons }) => {
           stateEnemyHp:
             prevEnemyFightHp.stateEnemyHp -
             enemyHp +
-            enemyDefense -
+            enemyDefense / 2 -
             userAttack / 2,
         };
       });
@@ -77,7 +77,7 @@ const PokeFight = ({ pokemons }) => {
             prevUserFightHp.stateUserHp -
             userHp +
             userDefense / 2 -
-            enemyAttack / 5,
+            enemyAttack / 2,
         };
       });
       setActivePlayer(!true);
@@ -108,8 +108,12 @@ const PokeFight = ({ pokemons }) => {
         {enemyFightHp.stateEnemyHp <= 0 && <p>You Won!</p>}
         {userFightHp.stateUserHp <= 0 && <p>You Lose!</p>}
         {!activePlayer
-          ? userSelect && <p>Your turn!</p>
-          : userSelect && <p>Computers Turn</p>}
+          ? userSelect &&
+            userFightHp.stateUserHp > 0 &&
+            enemyFightHp.stateEnemyHp > 0 && <p>Your turn!</p>
+          : userSelect &&
+            userFightHp.stateUserHp > 0 &&
+            enemyFightHp.stateEnemyHp > 0 && <p>Computers Turn</p>}
         {userSelect && (
           <div className="pokefight_random_pokemon">
             <RandomPokemon
