@@ -2,4 +2,16 @@
   color: black;
   width: 250px;
   font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user_pokemon_image {
+  width: 180px;
+  height: auto;
+}
+
+.select_pokemon_fight {
+  width: 75%;
 }
