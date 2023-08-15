@@ -56,7 +56,7 @@ const PokeFight = ({ pokemons }) => {
           stateEnemyHp:
             prevEnemyFightHp.stateEnemyHp -
             enemyHp +
-            enemyDefense / 2 -
+            enemyDefense -
             userAttack / 2,
         };
       });
@@ -77,7 +77,7 @@ const PokeFight = ({ pokemons }) => {
             prevUserFightHp.stateUserHp -
             userHp +
             userDefense / 2 -
-            enemyAttack / 2,
+            enemyAttack / 5,
         };
       });
       setActivePlayer(!true);
@@ -91,9 +91,11 @@ const PokeFight = ({ pokemons }) => {
     setUserFightHp({ stateUserHp: 100 });
   }
 
-  // function computerFightAuto() {
-  //   setTimeout(computerFight, 3000);
-  // }
+  function computerFightAuto() {
+    if (userFightHp.stateUserHp > 0 && enemyFightHp.stateEnemyHp > 0) {
+      setTimeout(computerFight, 3000);
+    }
+  }
 
   return (
     <>
@@ -128,10 +130,11 @@ const PokeFight = ({ pokemons }) => {
 
         <div className="pokefight_button">
           <button
-            onClick={!activePlayer ? userFight : computerFight}
+            onClick={!activePlayer ? userFight : computerFightAuto()}
             disabled={
-              userFightHp.stateUserHp <= 0 || enemyFightHp.stateEnemyHp <= 0
-              // || activePlayer
+              userFightHp.stateUserHp <= 0 ||
+              enemyFightHp.stateEnemyHp <= 0 ||
+              activePlayer
             }
             className="pokefight_fightbtn"
           >
