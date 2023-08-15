@@ -37,7 +37,7 @@ const PokemonDropdown = ({
         <>
           
           <PokeFightHpBar fight={userFightHp} />
-          <img src={userSelect && userSelect.sprites.back_default} />
+          <img className="user_pokemon_image" src={userSelect && userSelect.sprites.back_default} />
           
         </>
       )}
