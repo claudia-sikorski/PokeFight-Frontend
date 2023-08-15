@@ -100,20 +100,13 @@ const PokeFight = ({ pokemons }) => {
   return (
     <>
       <div className="pokefight_container">
-        {selectPokemonMessage && (
-          <p className="select-pokemon-message">
-            You need to select a Pokemon!
-          </p>
-        )}
+        <div className="pokefight_result">
         {enemyFightHp.stateEnemyHp <= 0 && <p>You Won!</p>}
         {userFightHp.stateUserHp <= 0 && <p>You Lose!</p>}
-        {!activePlayer
-          ? userSelect &&
-            userFightHp.stateUserHp > 0 &&
-            enemyFightHp.stateEnemyHp > 0 && <p>Your turn!</p>
-          : userSelect &&
-            userFightHp.stateUserHp > 0 &&
-            enemyFightHp.stateEnemyHp > 0 && <p>Computers Turn</p>}
+        </div>
+
+        
+        
         {userSelect && (
           <div className="pokefight_random_pokemon">
             <RandomPokemon
@@ -133,6 +126,15 @@ const PokeFight = ({ pokemons }) => {
         </div>
 
         <div className="pokefight_button">
+          <div className="turn_alert">
+        {!activePlayer
+          ? userSelect &&
+            userFightHp.stateUserHp > 0 &&
+            enemyFightHp.stateEnemyHp > 0 && <p>Your turn!</p>
+          : userSelect &&
+            userFightHp.stateUserHp > 0 &&
+            enemyFightHp.stateEnemyHp > 0 && <p>Computers turn!</p>}
+            </div>
           <button
             onClick={!activePlayer ? userFight : computerFightAuto()}
             disabled={
@@ -144,6 +146,11 @@ const PokeFight = ({ pokemons }) => {
           >
             Attack!
           </button>
+          {selectPokemonMessage && (
+          <p className="select-pokemon-message">
+            You need to select a Pokemon!
+          </p>
+        )}
           {userFightHp.stateUserHp <= 0 && (
             <button className="pokefight_fightbtn " onClick={newGame}>
               New Game
