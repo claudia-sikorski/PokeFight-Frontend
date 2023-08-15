@@ -4,15 +4,15 @@ import RandomPokemon from "./RandomPokemon";
 import { useState } from "react";
 
 const PokeFight = ({ pokemons }) => {
-  let [enemyFightHp, setEnemyFightHp] = useState(100);
-  let [userFightHp, setUserFightHp] = useState(100);
+  const [enemyFightHp, setEnemyFightHp] = useState({ stateEnemyHp: 100 });
+  const [userFightHp, setUserFightHp] = useState({ stateUserHp: 100 });
   const [userSelect, setUserSelect] = useState(null);
   const [selectPokemonMessage, setSelectPokemonMessage] = useState(false);
   const [randomPokemon, setRandomPokemon] = useState();
   const [activePlayer, setActivePlayer] = useState(true);
 
-  console.log("enemy: ", enemyFightHp);
-  console.log("user: ", userFightHp);
+  console.log("enemy: ", enemyFightHp.stateEnemyHp);
+  console.log("user: ", userFightHp.stateUserHp);
 
   const onChangeHandler = (selectedOption) => {
     setUserSelect(selectedOption.value);
@@ -50,9 +50,16 @@ const PokeFight = ({ pokemons }) => {
       setSelectPokemonMessage(true);
       console.log("userFightMEssage");
     } else {
-      setEnemyFightHp(
-        (enemyFightHp -= enemyHp + enemyDefense / 2 - userAttack / 2)
-      );
+      setEnemyFightHp((prevEnemyFightHp) => {
+        return {
+          ...prevEnemyFightHp,
+          stateEnemyHp:
+            prevEnemyFightHp.stateEnemyHp -
+            enemyHp +
+            enemyDefense / 2 -
+            userAttack / 2,
+        };
+      });
       setActivePlayer(!false);
       console.log("userFight");
     }
@@ -63,9 +70,16 @@ const PokeFight = ({ pokemons }) => {
       setSelectPokemonMessage(true);
       console.log("computerFightMessage");
     } else {
-      setUserFightHp(
-        (userFightHp -= userHp + userDefense / 2 - enemyAttack / 2)
-      );
+      setUserFightHp((prevUserFightHp) => {
+        return {
+          ...prevUserFightHp,
+          stateUserHp:
+            prevUserFightHp.stateUserHp -
+            userHp +
+            userDefense / 2 -
+            enemyAttack / 2,
+        };
+      });
       setActivePlayer(!true);
       console.log("computerFight");
     }
@@ -73,9 +87,13 @@ const PokeFight = ({ pokemons }) => {
 
   function newGame() {
     setUserSelect(null);
-    setEnemyFightHp(100);
-    setUserFightHp(100);
+    setEnemyFightHp({ stateEnemyHp: 100 });
+    setUserFightHp({ stateUserHp: 100 });
   }
+
+  // function computerFightAuto() {
+  //   setTimeout(computerFight, 3000);
+  // }
 
   return (
     <>
@@ -85,8 +103,8 @@ const PokeFight = ({ pokemons }) => {
             You need to select a Pokemon!
           </p>
         )}
-        {enemyFightHp <= 0 && <p>You Won!</p>}
-        {userFightHp <= 0 && <p>You Lose!</p>}
+        {enemyFightHp.stateEnemyHp <= 0 && <p>You Won!</p>}
+        {userFightHp.stateUserHp <= 0 && <p>You Lose!</p>}
         {!activePlayer
           ? userSelect && <p>Your turn!</p>
           : userSelect && <p>Computers Turn</p>}
@@ -94,7 +112,7 @@ const PokeFight = ({ pokemons }) => {
           <div className="pokefight_random_pokemon">
             <RandomPokemon
               pokemon={randomPokemon}
-              enemyFightHp={enemyFightHp}
+              enemyFightHp={enemyFightHp.stateEnemyHp}
             />
           </div>
         )}
@@ -104,25 +122,27 @@ const PokeFight = ({ pokemons }) => {
             userSelect={userSelect}
             onChangeHandler={onChangeHandler}
             randomPokemon={randomPokemon}
-            enemyFightHp={enemyFightHp}
-            userFightHp={userFightHp}
+            userFightHp={userFightHp.stateUserHp}
           />
         </div>
 
         <div className="pokefight_button">
           <button
             onClick={!activePlayer ? userFight : computerFight}
-            disabled={userFightHp <= 0 || enemyFightHp <= 0}
+            disabled={
+              userFightHp.stateUserHp <= 0 || enemyFightHp.stateEnemyHp <= 0
+              // || activePlayer
+            }
             className="pokefight_fightbtn"
           >
             Attack!
           </button>
-          {userFightHp <= 0 && (
+          {userFightHp.stateUserHp <= 0 && (
             <button className="pokefight_fightbtn " onClick={newGame}>
               New Game
             </button>
           )}
-          {enemyFightHp <= 0 && (
+          {enemyFightHp.stateEnemyHp <= 0 && (
             <button className="pokefight_fightbtn " onClick={newGame}>
               New Game
             </button>
