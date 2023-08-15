@@ -74,8 +74,6 @@
 }
 
 .pokefight_random_pokemon {
-  width: 120px;
-  height: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
