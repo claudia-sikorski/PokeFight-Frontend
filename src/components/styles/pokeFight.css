@@ -86,6 +86,10 @@
   aspect-ratio: 1;
 }
 
+.pokefight_button button:disabled {
+  background-color: #9b9b9b;
+}
+
 .user_pokemon_top {
   width: 100%;
   display: flex;
