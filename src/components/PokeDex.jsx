@@ -37,7 +37,6 @@ const PokeDex = () => {
 
   useEffect(() => {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`).then((response) => {
-      // setPokeData(response.data);
       setName(response.data.name);
       setNumber(response.data.id);
       setTypes(response.data.types.map((type) => type.type.name));
@@ -50,8 +49,6 @@ const PokeDex = () => {
       setSpeed(response.data.stats[5].base_stat);
     });
   }, [id]);
-
-  console.log(moves);
 
   return (
     <>
@@ -70,7 +67,6 @@ const PokeDex = () => {
         </div>
         <div className="pokemonType_Container">
           {types.map((type) => {
-            // console.log(type);
             return <PokeTypes key={type} type={type} />;
           })}
         </div>
@@ -154,21 +150,6 @@ const PokeDex = () => {
             </TabPanel>
           </Tabs>
         </div>
-        {/* <div className="pokeDex_Attacks">
-          <p id="attack_Header">Learned Attacks</p>
-          <p className="attack">
-            {moves[Math.floor(Math.random() * moves.length)]}
-          </p>
-          <p className="attack">
-            {moves[Math.floor(Math.random() * moves.length)]}
-          </p>
-          <p className="attack">
-            {moves[Math.floor(Math.random() * moves.length)]}
-          </p>
-          <p className="attack">
-            {moves[Math.floor(Math.random() * moves.length)]}
-          </p>
-        </div> */}
         <div className="pokeDex_Footer">
           <Link
             to={`/pokemon/${previousPokemon}`}
