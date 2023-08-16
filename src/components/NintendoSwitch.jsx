@@ -1,11 +1,33 @@
 import "./styles/nitendoSwitch.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import Home from "../components/Home";
 import PokeList from "../components/PokeList";
 import PokeDex from "../components/PokeDex";
 import PokeFight from "../components/PokeFight";
+import { useState } from "react";
 
-const NitendoSwitch = ({ pokemons }) => {
+const NitendoSwitch = ({
+  pokemons,
+  pokemonsPagination,
+  totalPosts,
+  postsPerPage,
+  setCurrentPage,
+  currentPage,
+}) => {
+  const [audio, setAudio] = useState(
+    new Audio("src/assets/sounds/Pokemon_Theme_Song.mp3")
+  );
+
+  function playSong() {
+    if (audio) {
+      audio.play();
+    }
+  }
+
+  function pauseSong() {
+    audio.pause();
+  }
+
   return (
     <>
       <div className="switch">
@@ -13,13 +35,24 @@ const NitendoSwitch = ({ pokemons }) => {
           <div className="volume"></div>
           <div className="screen">
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home playSong={playSong} />} />
               <Route
                 path="/pokemon"
-                element={<PokeList pokemons={pokemons} />}
+                element={
+                  <PokeList
+                    pokemons={pokemonsPagination}
+                    totalPosts={totalPosts}
+                    postsPerPage={postsPerPage}
+                    setCurrentPage={setCurrentPage}
+                    currentPage={currentPage}
+                  />
+                }
               />
               <Route path="/pokemon/:id" element={<PokeDex />} />
-              <Route path="/pokemon/fight" element={<PokeFight />} />
+              <Route
+                path="/pokemon/fight"
+                element={<PokeFight pokemons={pokemons} />}
+              />
             </Routes>
           </div>
         </div>
@@ -33,7 +66,9 @@ const NitendoSwitch = ({ pokemons }) => {
           </div>
 
           <div className="stick"></div>
-          <div className="select"></div>
+          <Link onClick={pauseSong}>
+            <div className="select"></div>
+          </Link>
           <div className="capture"></div>
           <div className="shoulder l"></div>
         </div>
@@ -47,15 +82,17 @@ const NitendoSwitch = ({ pokemons }) => {
           </div>
 
           <div className="stick"></div>
-          <div className="start"></div>
-          <div className="home"></div>
+          <Link onClick={playSong}>
+            <div className="start"></div>
+          </Link>
+          <Link to={"/"}>
+            <div className="home"></div>
+          </Link>
           <div className="shoulder r"></div>
         </div>
       </div>
     </>
   );
 };
-
-
 
 export default NitendoSwitch;
