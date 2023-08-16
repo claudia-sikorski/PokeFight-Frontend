@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import NitendoSwitch from "./components/NintendoSwitch";
 
@@ -35,6 +35,18 @@ function App() {
 
   const totalPosts = pokemons.allData && pokemons.allData.length;
 
+  const audio = useRef(new Audio("src/assets/sounds/Pokemon_Theme_Song.mp3"));
+
+  function playSong() {
+    if (audio) {
+      audio.current.play();
+    }
+  }
+
+  function pauseSong() {
+    audio.current.pause();
+  }
+
   return (
     <>
       <NitendoSwitch
@@ -44,6 +56,8 @@ function App() {
         postsPerPage={postsPerPage}
         setCurrentPage={setCurrentPage}
         currentPage={currentPage}
+        playSong={playSong}
+        pauseSong={pauseSong}
       />
     </>
   );

@@ -4,32 +4,52 @@ import RandomPokemon from "./RandomPokemon";
 import { useState } from "react";
 
 const PokeFight = ({ pokemons }) => {
-  const [enemyFightHp, setEnemyFightHp] = useState({ stateEnemyHp: 100 });
-  const [userFightHp, setUserFightHp] = useState({ stateUserHp: 100 });
+  const [userFightHp, setUserFightHp] = useState(1);
+  const [enemyFightHp, setEnemyFightHp] = useState(1);
+  const [userMaxHp, setUserMaxtHp] = useState(1);
+  const [enemyMaxHp, setEnemyMaxHp] = useState(1);
   const [userSelect, setUserSelect] = useState(null);
   const [selectPokemonMessage, setSelectPokemonMessage] = useState(false);
   const [randomPokemon, setRandomPokemon] = useState();
   const [activePlayer, setActivePlayer] = useState(true);
-
-  console.log("enemy: ", enemyFightHp.stateEnemyHp);
-  console.log("user: ", userFightHp.stateUserHp);
 
   const onChangeHandler = (selectedOption) => {
     setUserSelect(selectedOption.value);
     setSelectPokemonMessage(false);
     randomPokemonHandler();
     randomActivePlayerHandler();
+    setUserFightHp(
+      selectedOption.value.stats[0].base_stat +
+        selectedOption.value.stats[1].base_stat +
+        selectedOption.value.stats[5].base_stat
+    );
+    setUserMaxtHp(
+      selectedOption.value.stats[0].base_stat +
+        selectedOption.value.stats[1].base_stat +
+        selectedOption.value.stats[5].base_stat
+    );
   };
 
   function randomPokemonHandler() {
     if (pokemons) {
-      let randomIndex = Math.floor(Math.random() * 151);
+      let randomIndex = Math.floor(Math.random() * 152);
       setRandomPokemon(pokemons[randomIndex]);
+      setEnemyFightHp(
+        pokemons[randomIndex].data.stats[0].base_stat +
+          pokemons[randomIndex].data.stats[1].base_stat +
+          pokemons[randomIndex].data.stats[5].base_stat
+      );
+      setEnemyMaxHp(
+        pokemons[randomIndex].data.stats[0].base_stat +
+          pokemons[randomIndex].data.stats[1].base_stat +
+          pokemons[randomIndex].data.stats[5].base_stat
+      );
     }
   }
 
   function randomActivePlayerHandler() {
     let randomActivPlayerIndex = Math.floor(Math.random() * 2);
+    console.log("randomPokemonIndex", randomActivPlayerIndex);
     if (randomActivPlayerIndex === 0) {
       setActivePlayer(true);
     } else if (randomActivPlayerIndex === 1) {
@@ -37,13 +57,9 @@ const PokeFight = ({ pokemons }) => {
     }
   }
 
-  const userHp = userSelect && userSelect.stats[0].base_stat;
   const userAttack = userSelect && userSelect.stats[1].base_stat;
-  const userDefense = userSelect && userSelect.stats[2].base_stat;
 
-  const enemyHp = randomPokemon && randomPokemon.data.stats[0].base_stat;
   const enemyAttack = randomPokemon && randomPokemon.data.stats[1].base_stat;
-  const enemyDefense = randomPokemon && randomPokemon.data.stats[2].base_stat;
 
   function userFight() {
     if (!userSelect) {
@@ -51,16 +67,10 @@ const PokeFight = ({ pokemons }) => {
       console.log("userFightMEssage");
     } else {
       setEnemyFightHp((prevEnemyFightHp) => {
-        return {
-          ...prevEnemyFightHp,
-          stateEnemyHp:
-            prevEnemyFightHp.stateEnemyHp -
-            enemyHp +
-            enemyDefense / 2 -
-            userAttack / 2,
-        };
+        console.log("prevEnemyFightHp", prevEnemyFightHp);
+        return prevEnemyFightHp - userAttack;
       });
-      setActivePlayer(!false);
+      setActivePlayer(!activePlayer);
       console.log("userFight");
     }
   }
@@ -71,28 +81,21 @@ const PokeFight = ({ pokemons }) => {
       console.log("computerFightMessage");
     } else {
       setUserFightHp((prevUserFightHp) => {
-        return {
-          ...prevUserFightHp,
-          stateUserHp:
-            prevUserFightHp.stateUserHp -
-            userHp +
-            userDefense / 2 -
-            enemyAttack / 2,
-        };
+        return prevUserFightHp - enemyAttack / 2;
       });
-      setActivePlayer(!true);
+      setActivePlayer(!activePlayer);
       console.log("computerFight");
     }
   }
 
   function newGame() {
     setUserSelect(null);
-    setEnemyFightHp({ stateEnemyHp: 100 });
-    setUserFightHp({ stateUserHp: 100 });
+    setEnemyFightHp(1);
+    setUserFightHp(1);
   }
 
   function computerFightAuto() {
-    if (userFightHp.stateUserHp > 0 && enemyFightHp.stateEnemyHp > 0) {
+    if (userSelect && userFightHp > 0 && enemyFightHp > 0) {
       setTimeout(computerFight, 3000);
     }
   }
@@ -101,17 +104,16 @@ const PokeFight = ({ pokemons }) => {
     <>
       <div className="pokefight_container">
         <div className="pokefight_result">
-        {enemyFightHp.stateEnemyHp <= 0 && <p>You Won!</p>}
-        {userFightHp.stateUserHp <= 0 && <p>You Lose!</p>}
+          {enemyFightHp <= 0 && <p>You Won!</p>}
+          {userFightHp <= 0 && <p>You Lose!</p>}
         </div>
 
-        
-        
         {userSelect && (
           <div className="pokefight_random_pokemon">
             <RandomPokemon
               pokemon={randomPokemon}
-              enemyFightHp={enemyFightHp.stateEnemyHp}
+              enemyFightHp={enemyFightHp}
+              enemyMaxHp={enemyMaxHp}
             />
           </div>
         )}
@@ -121,42 +123,43 @@ const PokeFight = ({ pokemons }) => {
             userSelect={userSelect}
             onChangeHandler={onChangeHandler}
             randomPokemon={randomPokemon}
-            userFightHp={userFightHp.stateUserHp}
+            userFightHp={userFightHp}
+            userMaxHp={userMaxHp}
           />
         </div>
 
         <div className="pokefight_button">
           <div className="turn_alert">
-        {!activePlayer
-          ? userSelect &&
-            userFightHp.stateUserHp > 0 &&
-            enemyFightHp.stateEnemyHp > 0 && <p>Your turn!</p>
-          : userSelect &&
-            userFightHp.stateUserHp > 0 &&
-            enemyFightHp.stateEnemyHp > 0 && <p>Computers turn!</p>}
-            </div>
+            {!activePlayer
+              ? userSelect &&
+                userFightHp > 0 &&
+                enemyFightHp > 0 && (
+                  <p className="poke-fight-active-player">Your turn!</p>
+                )
+              : userSelect &&
+                userFightHp > 0 &&
+                enemyFightHp > 0 && (
+                  <p className="poke-fight-active-player">Computers turn!</p>
+                )}
+          </div>
           <button
             onClick={!activePlayer ? userFight : computerFightAuto()}
-            disabled={
-              userFightHp.stateUserHp <= 0 ||
-              enemyFightHp.stateEnemyHp <= 0 ||
-              activePlayer
-            }
+            disabled={userFightHp <= 0 || enemyFightHp <= 0 || activePlayer}
             className="pokefight_fightbtn"
           >
             Attack!
           </button>
           {selectPokemonMessage && (
-          <p className="select-pokemon-message">
-            You need to select a Pokemon!
-          </p>
-        )}
-          {userFightHp.stateUserHp <= 0 && (
+            <p className="select-pokemon-message">
+              You need to select a Pokemon!
+            </p>
+          )}
+          {userFightHp <= 0 && (
             <button className="pokefight_fightbtn " onClick={newGame}>
               New Game
             </button>
           )}
-          {enemyFightHp.stateEnemyHp <= 0 && (
+          {enemyFightHp <= 0 && (
             <button className="pokefight_fightbtn " onClick={newGame}>
               New Game
             </button>
