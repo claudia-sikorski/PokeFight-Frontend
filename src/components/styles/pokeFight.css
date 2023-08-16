@@ -10,11 +10,35 @@
   background-size: cover;
   grid-auto-flow: row;
   grid-template-areas:
-    ". pokefight_result pokefight_random_pokemon"
+    "pokefight_hp_bar_user pokefight_result pokefight_hp_bar_random"
     ". . pokefight_random_pokemon"
     "pokefight_user_pokemon pokefight_button pokefight_random_pokemon"
     "pokefight_user_pokemon pokefight_button pokefight_random_pokemon"
-    "pokefight_user_pokemon . .";
+    "pokefight_user_pokemon . pokefight_random_pokemon";
+}
+
+.pokefight_hp_bar_user {
+  grid-area: pokefight_hp_bar_user;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.pokefight_hp_bar_random {
+  grid-area: pokefight_hp_bar_random;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 .pokefight_user_pokemon {
@@ -31,18 +55,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #194783;
+  color: #c5b613;
   font-weight: bold;
-  text-shadow: -2px -2px 0 #c5b613, 2px -2px 0 #c5b613, -2px 2px 0 #c5b613,
-    2px 2px 0 #c5b613;
+  text-shadow: -2px -2px 0 #194783, 2px -2px 0 #194783, -2px 2px 0 #194783,
+    2px 2px 0 #194783;
 }
 
 .pokefight_random_pokemon {
   grid-area: pokefight_random_pokemon;
   display: flex;
   justify-content: center;
-  align-items: center;
-  background-color: transparent;
+  align-items: flex-start;
+  padding-top: 20px;
 }
 
 .pokefight_button {
@@ -83,13 +107,6 @@
   padding: 10px 20px 10px 20px;
   border: none;
   border-radius: 5px;
-}
-
-.pokefight_random_pokemon {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-direction: column;
 }
 
 .pokefight_random_pokemon_img {
@@ -140,4 +157,11 @@
   to {
     font-size: 24px;
   }
+}
+
+.turn_alert p {
+  color: #fff;
+  font-weight: bold;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
