@@ -37,7 +37,6 @@ const PokeDex = () => {
 
   useEffect(() => {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`).then((response) => {
-      // setPokeData(response.data);
       setName(response.data.name);
       setNumber(response.data.id);
       setTypes(response.data.types.map((type) => type.type.name));
