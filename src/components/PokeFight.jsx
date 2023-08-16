@@ -57,6 +57,8 @@ const PokeFight = ({ pokemons }) => {
     }
   }
 
+  console.log(userSelect);
+
   const userAttack = userSelect && userSelect.stats[1].base_stat;
 
   const enemyAttack = randomPokemon && randomPokemon.data.stats[1].base_stat;
