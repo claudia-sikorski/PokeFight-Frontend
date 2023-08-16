@@ -257,6 +257,10 @@
   margin-left: 15px;
 }
 
+.Panel_Stats_Wrapper p {
+  margin-bottom: 4px;
+}
+
 .Panel_Stats_Info1 {
   width: 300px;
   color: white;
@@ -264,8 +268,10 @@
 }
 
 .Panel_Stats_Info2 {
+  width: 35px;
   color: white;
   font-size: 1.2rem;
+  text-align: right;
 }
 
 /* Panel Attacks */
