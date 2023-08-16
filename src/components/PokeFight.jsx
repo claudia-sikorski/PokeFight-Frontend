@@ -1,21 +1,17 @@
 import "./styles/pokeFight.css";
 import PokemonDropdown from "./DropdownPokemon";
 import RandomPokemon from "./RandomPokemon";
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 const PokeFight = ({ pokemons }) => {
   const [userFightHp, setUserFightHp] = useState(1);
   const [enemyFightHp, setEnemyFightHp] = useState(1);
+  const [userMaxHp, setUserMaxtHp] = useState(1);
+  const [enemyMaxHp, setEnemyMaxHp] = useState(1);
   const [userSelect, setUserSelect] = useState(null);
   const [selectPokemonMessage, setSelectPokemonMessage] = useState(false);
   const [randomPokemon, setRandomPokemon] = useState();
   const [activePlayer, setActivePlayer] = useState(true);
-
-  // const [testHpUser, setTestHpUser] = useState();
-  // const [testHpEnemy, setTestHpEnemy] = useState();
-
-  console.log(userFightHp);
-  console.log(enemyFightHp);
 
   const onChangeHandler = (selectedOption) => {
     setUserSelect(selectedOption.value);
@@ -27,6 +23,11 @@ const PokeFight = ({ pokemons }) => {
         selectedOption.value.stats[1].base_stat +
         selectedOption.value.stats[5].base_stat
     );
+    setUserMaxtHp(
+      selectedOption.value.stats[0].base_stat +
+        selectedOption.value.stats[1].base_stat +
+        selectedOption.value.stats[5].base_stat
+    );
   };
 
   function randomPokemonHandler() {
@@ -34,6 +35,11 @@ const PokeFight = ({ pokemons }) => {
       let randomIndex = Math.floor(Math.random() * 152);
       setRandomPokemon(pokemons[randomIndex]);
       setEnemyFightHp(
+        pokemons[randomIndex].data.stats[0].base_stat +
+          pokemons[randomIndex].data.stats[1].base_stat +
+          pokemons[randomIndex].data.stats[5].base_stat
+      );
+      setEnemyMaxHp(
         pokemons[randomIndex].data.stats[0].base_stat +
           pokemons[randomIndex].data.stats[1].base_stat +
           pokemons[randomIndex].data.stats[5].base_stat
@@ -51,36 +57,9 @@ const PokeFight = ({ pokemons }) => {
     }
   }
 
-  // const userHp = userSelect && userSelect.stats[0].base_stat;
-  // // console.log("userHp: ", userHp);
   const userAttack = userSelect && userSelect.stats[1].base_stat;
-  // // console.log("userAttack: ", userAttack);
-  // const userDefense = userSelect && userSelect.stats[2].base_stat;
-  // // console.log("userDefense", userDefense);
-  // const userSpeed = userSelect && userSelect.stats[5].base_stat;
-  // // console.log("userSpeed", userSpeed);
 
-  // const userEnergy = userHp + userDefense + userSpeed;
-  // console.log("userEnergy user without : ", userHp + userDefense + userSpeed);
-  // console.log("useRef user: ", userEnergy.current);
-
-  // const enemyHp = randomPokemon && randomPokemon.data.stats[0].base_stat;
-  // console.log("enemyHp: ", enemyHp);
   const enemyAttack = randomPokemon && randomPokemon.data.stats[1].base_stat;
-  console.log("Attack:", enemyAttack);
-  // console.log("enemyAttack: ", enemyAttack);
-  // const enemyDefense = randomPokemon && randomPokemon.data.stats[2].base_stat;
-  // console.log("enemyDefense: ", enemyDefense);
-  // const enemySpeed = randomPokemon && randomPokemon.data.stats[5].base_stat;
-  // console.log("enemySpeed: ", enemySpeed);
-
-  // const enemyEnergy = enemyHp + enemyDefense + enemySpeed;
-
-  // console.log(
-  //   "enemyEnergy wihtout useRef :",
-  //   enemyHp + enemyDefense + enemySpeed
-  // );
-  // console.log("useRef Enemy:", enemyEnergy.current);
 
   function userFight() {
     if (!userSelect) {
@@ -89,7 +68,7 @@ const PokeFight = ({ pokemons }) => {
     } else {
       setEnemyFightHp((prevEnemyFightHp) => {
         console.log("prevEnemyFightHp", prevEnemyFightHp);
-        prevEnemyFightHp - userAttack;
+        return prevEnemyFightHp - userAttack;
       });
       setActivePlayer(!activePlayer);
       console.log("userFight");
@@ -102,7 +81,7 @@ const PokeFight = ({ pokemons }) => {
       console.log("computerFightMessage");
     } else {
       setUserFightHp((prevUserFightHp) => {
-        prevUserFightHp - enemyAttack;
+        return prevUserFightHp - enemyAttack / 2;
       });
       setActivePlayer(!activePlayer);
       console.log("computerFight");
@@ -134,6 +113,7 @@ const PokeFight = ({ pokemons }) => {
             <RandomPokemon
               pokemon={randomPokemon}
               enemyFightHp={enemyFightHp}
+              enemyMaxHp={enemyMaxHp}
             />
           </div>
         )}
@@ -144,6 +124,7 @@ const PokeFight = ({ pokemons }) => {
             onChangeHandler={onChangeHandler}
             randomPokemon={randomPokemon}
             userFightHp={userFightHp}
+            userMaxHp={userMaxHp}
           />
         </div>
 

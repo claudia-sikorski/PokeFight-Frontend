@@ -1,19 +1,14 @@
 import "./styles/dropdown.css";
 import Select from "react-select";
 import PokeFightHpBar from "./PokeFightHpBar";
-import RandomPokemon from "./RandomPokemon";
 
 const PokemonDropdown = ({
   pokemons,
-  fight,
   userSelect,
   onChangeHandler,
-  randomPokemon,
-  enemyFightHp,
   userFightHp,
+  userMaxHp,
 }) => {
-  // console.log('userselect:', userSelect);
-
   return (
     <>
       {!userSelect && (
@@ -35,10 +30,11 @@ const PokemonDropdown = ({
       )}
       {userSelect && (
         <>
-          
-          <PokeFightHpBar fight={userFightHp} />
-          <img className="user_pokemon_image" src={userSelect && userSelect.sprites.back_default} />
-          
+          <PokeFightHpBar fight={userFightHp} maxHp={userMaxHp} />
+          <img
+            className="user_pokemon_image"
+            src={userSelect && userSelect.sprites.back_default}
+          />
         </>
       )}
     </>
