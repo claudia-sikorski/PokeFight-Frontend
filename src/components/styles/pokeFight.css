@@ -25,6 +25,7 @@
   background-color: transparent;
 }
 
+
 .pokefight_result {
   grid-area: pokefight_result;
   display: flex;
