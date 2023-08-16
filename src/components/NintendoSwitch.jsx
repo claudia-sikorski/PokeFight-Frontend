@@ -4,7 +4,7 @@ import Home from "../components/Home";
 import PokeList from "../components/PokeList";
 import PokeDex from "../components/PokeDex";
 import PokeFight from "../components/PokeFight";
-import { useState } from "react";
+import { useRef } from "react";
 
 const NitendoSwitch = ({
   pokemons,
@@ -13,21 +13,9 @@ const NitendoSwitch = ({
   postsPerPage,
   setCurrentPage,
   currentPage,
+  playSong,
+  pauseSong,
 }) => {
-  const [audio, setAudio] = useState(
-    new Audio("src/assets/sounds/Pokemon_Theme_Song.mp3")
-  );
-
-  function playSong() {
-    if (audio) {
-      audio.play();
-    }
-  }
-
-  function pauseSong() {
-    audio.pause();
-  }
-
   return (
     <>
       <div className="switch">
