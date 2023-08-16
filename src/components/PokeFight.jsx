@@ -1,6 +1,7 @@
 import "./styles/pokeFight.css";
 import PokemonDropdown from "./DropdownPokemon";
 import RandomPokemon from "./RandomPokemon";
+import PokeFightHpBar from "./PokeFightHpBar";
 import { useState } from "react";
 
 const PokeFight = ({ pokemons }) => {
@@ -129,6 +130,19 @@ const PokeFight = ({ pokemons }) => {
             userMaxHp={userMaxHp}
           />
         </div>
+
+        { userSelect && (
+          <>
+          <div className="pokefight_hp_bar_user">
+            <p>{userSelect.name.charAt(0).toUpperCase() + userSelect.name.slice(1)}</p>
+          <PokeFightHpBar fight={userFightHp} maxHp={userMaxHp} />
+          </div>
+          <div className="pokefight_hp_bar_random">
+          <p>{randomPokemon.data.name.charAt(0).toUpperCase() + randomPokemon.data.name.slice(1)}</p>
+          <PokeFightHpBar fight={enemyFightHp} maxHp={enemyMaxHp} />
+          </div>
+          </>)}
+
 
         <div className="pokefight_button">
           <div className="turn_alert">
