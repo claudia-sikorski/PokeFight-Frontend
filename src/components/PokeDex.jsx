@@ -51,8 +51,6 @@ const PokeDex = () => {
     });
   }, [id]);
 
-  console.log(moves);
-
   return (
     <>
       <div className="pokeDex_Background"></div>
@@ -70,7 +68,6 @@ const PokeDex = () => {
         </div>
         <div className="pokemonType_Container">
           {types.map((type) => {
-            // console.log(type);
             return <PokeTypes key={type} type={type} />;
           })}
         </div>
@@ -154,21 +151,6 @@ const PokeDex = () => {
             </TabPanel>
           </Tabs>
         </div>
-        {/* <div className="pokeDex_Attacks">
-          <p id="attack_Header">Learned Attacks</p>
-          <p className="attack">
-            {moves[Math.floor(Math.random() * moves.length)]}
-          </p>
-          <p className="attack">
-            {moves[Math.floor(Math.random() * moves.length)]}
-          </p>
-          <p className="attack">
-            {moves[Math.floor(Math.random() * moves.length)]}
-          </p>
-          <p className="attack">
-            {moves[Math.floor(Math.random() * moves.length)]}
-          </p>
-        </div> */}
         <div className="pokeDex_Footer">
           <Link
             to={`/pokemon/${previousPokemon}`}
