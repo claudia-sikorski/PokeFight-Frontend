@@ -1,17 +1,14 @@
 import "./styles/dropdown.css";
 import Select from "react-select";
 
-const PokemonDropdown = ({
-  pokemons,
-  userSelect,
-  onChangeHandler,
-}) => {
+const PokemonDropdown = ({ pokemons, userSelect, onChangeHandler }) => {
   return (
     <>
       {!userSelect && (
         <div className="dropdown_select">
           {pokemons && (
             <Select
+              id="dropdown"
               onChange={onChangeHandler}
               options={pokemons.map((pokemon) => {
                 return {
@@ -28,10 +25,14 @@ const PokemonDropdown = ({
       {userSelect && (
         <>
           <div className="pokefight_image_center">
-          <img
-            className="user_pokemon_image"
-            src={userSelect && userSelect.sprites.back_default}
-          />
+            <img
+              className="user_pokemon_image"
+              src={
+                userSelect &&
+                userSelect.sprites.versions["generation-v"]["black-white"]
+                  .animated.back_default
+              }
+            />
           </div>
         </>
       )}

@@ -3,7 +3,7 @@
   width: 100%;
   height: 100%;
   grid-template-columns: 1fr 0.8fr 1fr;
-  grid-template-rows: 1.1fr 0.6fr 1.3fr 0.7fr 1.3fr;
+  grid-template-rows: 0.8fr 0.6fr 1.3fr 0.7fr 1.3fr;
   gap: 0px 0px;
   background-image: url("https://s3.amazonaws.com/prod-media.gameinformer.com/styles/full/s3/2018/12/02/6a13488e/trainer_battles_arena.jpg");
   background-repeat: no-repeat;
@@ -11,7 +11,7 @@
   grid-auto-flow: row;
   grid-template-areas:
     "pokefight_hp_bar_user pokefight_result pokefight_hp_bar_random"
-    ". . pokefight_random_pokemon"
+    "pokefight_hp_bar_user_footer . pokefight_hp_bar_random_footer"
     "pokefight_user_pokemon pokefight_button pokefight_random_pokemon"
     "pokefight_user_pokemon pokefight_button pokefight_random_pokemon"
     "pokefight_user_pokemon . pokefight_random_pokemon";
@@ -23,10 +23,19 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  color: #fff;
+  color: white;
   font-weight: bold;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000;
+  font-size: 24px;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(0.5turn, #194783, #2175a1);
+}
+
+.pokefight_hp_bar_user_footer {
+  grid-area: pokefight_hp_bar_user_footer;
+  background-color: white;
+  border-radius: 0 0 15px 0;
+  border-top: 2px solid rgb(255, 230, 0);
+  height: 12px;
 }
 
 .pokefight_hp_bar_random {
@@ -35,10 +44,19 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  color: #fff;
+  color: white;
   font-weight: bold;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000;
+  font-size: 24px;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(0.5turn, #194783, #2175a1);
+}
+
+.pokefight_hp_bar_random_footer {
+  grid-area: pokefight_hp_bar_random_footer;
+  background-color: white;
+  border-radius: 0 0 0 15px;
+  border-top: 2px solid rgb(255, 230, 0);
+  height: 12px;
 }
 
 .pokefight_user_pokemon {
@@ -49,13 +67,12 @@
   background-color: transparent;
 }
 
-
 .pokefight_result {
   grid-area: pokefight_result;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #c5b613;
+  color: #e7d617;
   font-weight: bold;
   text-shadow: -2px -2px 0 #194783, 2px -2px 0 #194783, -2px 2px 0 #194783,
     2px 2px 0 #194783;
@@ -96,7 +113,7 @@
   font-weight: bold;
   cursor: pointer;
   margin: 5px;
-  width: 200px;
+  width: 140px;
 }
 
 .pokefight_fightbtn:hover {
@@ -110,7 +127,8 @@
 }
 
 .pokefight_random_pokemon_img {
-  width: 180px;
+  min-width: 100px;
+  max-width: 220px;
   height: auto;
   aspect-ratio: 1;
 }
@@ -143,25 +161,42 @@
 .turn_alert {
   color: #fff;
   font-weight: bold;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
   text-align: center;
-  animation-name: activePlayer;
-  animation-duration: 2s;
 }
 
-@keyframes activePlayer {
+/* @keyframes activePlayer {
   from {
     font-size: 1px;
   }
   to {
     font-size: 24px;
   }
-}
+} */
 
 .turn_alert p {
   color: #fff;
   font-weight: bold;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000;
+}
+
+.pokemon-arena-title {
+  color: #e7d617;
+  font-weight: bold;
+  text-shadow: -2px -2px 0 #194783, 2px -2px 0 #194783, -2px 2px 0 #194783,
+    2px 2px 0 #194783;
+  font-size: 31px;
+}
+
+.poke-fight-active-player-random {
+  font-size: 30px;
+}
+
+.poke-fight-icon-and-name {
+  display: flex;
+  align-items: center;
+}
+
+.poke-fight-icon-and-name img {
+  margin-right: 10px;
+  height: 30px;
 }

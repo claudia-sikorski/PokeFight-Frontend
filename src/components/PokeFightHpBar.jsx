@@ -10,9 +10,9 @@ const PokeFightHpBar = ({ fight, maxHp }) => {
         id="fuel"
         min="0"
         max={maxHp}
-        low="33"
-        high="66"
-        optimum="80"
+        low={(maxHp / 100) * 33}
+        high={(maxHp / 100) * 66}
+        optimum={(maxHp / 100) * 80}
         value={fight}
       ></meter>
     </div>
