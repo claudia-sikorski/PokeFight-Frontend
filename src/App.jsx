@@ -13,8 +13,6 @@ function App() {
     "https://pokeapi.co/api/v2/pokemon?limit=151"
   );
 
-  // console.log(pokemons && pokemons.allData);
-
   useEffect(() => {
     axios.get(currentUrl).then((response) => {
       Promise.all(
@@ -35,17 +33,17 @@ function App() {
 
   const totalPosts = pokemons.allData && pokemons.allData.length;
 
-  const audio = useRef(new Audio("src/assets/sounds/Pokemon_Theme_Song.mp3"));
+  // const audio = useRef(new Audio("src/assets/sounds/Pokemon_Theme_Song.mp3"));
 
-  function playSong() {
-    if (audio) {
-      audio.current.play();
-    }
-  }
+  // function playSong() {
+  //   if (audio) {
+  //     audio.current.play();
+  //   }
+  // }
 
-  function pauseSong() {
-    audio.current.pause();
-  }
+  // function pauseSong() {
+  //   audio.current.pause();
+  // }
 
   return (
     <>
@@ -56,8 +54,8 @@ function App() {
         postsPerPage={postsPerPage}
         setCurrentPage={setCurrentPage}
         currentPage={currentPage}
-        playSong={playSong}
-        pauseSong={pauseSong}
+        // playSong={playSong}
+        // pauseSong={pauseSong}
       />
     </>
   );
