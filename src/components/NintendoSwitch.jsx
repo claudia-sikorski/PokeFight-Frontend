@@ -4,7 +4,6 @@ import Home from "../components/Home";
 import PokeList from "../components/PokeList";
 import PokeDex from "../components/PokeDex";
 import PokeFight from "../components/PokeFight";
-import { useRef } from "react";
 
 const NitendoSwitch = ({
   pokemons,
@@ -13,8 +12,8 @@ const NitendoSwitch = ({
   postsPerPage,
   setCurrentPage,
   currentPage,
-  playSong,
-  pauseSong,
+  // playSong,
+  // pauseSong,
 }) => {
   return (
     <>
@@ -23,7 +22,7 @@ const NitendoSwitch = ({
           <div className="volume"></div>
           <div className="screen">
             <Routes>
-              <Route path="/" element={<Home playSong={playSong} />} />
+              <Route path="/" element={<Home />} />
               <Route
                 path="/pokemon"
                 element={
@@ -54,7 +53,7 @@ const NitendoSwitch = ({
           </div>
 
           <div className="stick"></div>
-          <Link onClick={pauseSong}>
+          <Link>
             <div className="select"></div>
           </Link>
           <div className="capture"></div>
@@ -70,7 +69,7 @@ const NitendoSwitch = ({
           </div>
 
           <div className="stick"></div>
-          <Link onClick={playSong}>
+          <Link>
             <div className="start"></div>
           </Link>
           <Link to={"/"}>

@@ -6,7 +6,7 @@ const Home = ({ playSong }) => {
 
   function showHome() {
     setStart(true);
-    playSong();
+    // playSong();
   }
 
   return (
@@ -53,7 +53,7 @@ const Home = ({ playSong }) => {
                   </div>
                   <p className="elt1">POKEFIGHT</p>
                 </Link>
-                <Link className="poke-home-link">
+                {/* <Link className="poke-home-link">
                   <div className="poke-list-header">
                     <img
                       src="./src/assets/home-img/highscore.png"
@@ -63,7 +63,7 @@ const Home = ({ playSong }) => {
                   </div>
                   <p className="elt1">HIGHSCORES</p>
                 </Link>
-                <h6>You can stop the song on - button</h6>
+                <h6>You can stop the song on - button</h6> */}
               </>
             )}
           </div>
