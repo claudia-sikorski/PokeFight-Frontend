@@ -10,13 +10,11 @@ const PokeFight = ({ pokemons }) => {
   const [userMaxHp, setUserMaxtHp] = useState(1);
   const [enemyMaxHp, setEnemyMaxHp] = useState(1);
   const [userSelect, setUserSelect] = useState(null);
-  // const [selectPokemonMessage, setSelectPokemonMessage] = useState(false);
   const [randomPokemon, setRandomPokemon] = useState();
   const [activePlayer, setActivePlayer] = useState(true);
 
   const onChangeHandler = (selectedOption) => {
     setUserSelect(selectedOption.value);
-    // setSelectPokemonMessage(false);
     randomPokemonHandler();
     randomActivePlayerHandler();
     setUserFightHp(

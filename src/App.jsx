@@ -45,8 +45,6 @@ function App() {
   //   audio.current.pause();
   // }
 
-  console.log("test");
-
   return (
     <>
       <NitendoSwitch
