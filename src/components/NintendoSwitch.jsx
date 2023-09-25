@@ -4,7 +4,6 @@ import Home from "../components/Home";
 import PokeList from "../components/PokeList";
 import PokeDex from "../components/PokeDex";
 import PokeFight from "../components/PokeFight";
-import { useRef } from "react";
 
 const NitendoSwitch = ({
   pokemons,
