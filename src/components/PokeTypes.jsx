@@ -1,23 +1,23 @@
 import "./styles/pokeTypes.css";
 
-import Bug from "../assets/types/bug.png";
-import Dark from "../assets/types/dark.png";
-import Dragon from "../assets/types/dragon.png";
-import Electric from "../assets/types/electric.png";
-import Fairy from "../assets/types/fairy.png";
-import Fighting from "../assets/types/fighting.png";
-import Fire from "../assets/types/fire.png";
-import Flying from "../assets/types/flying.png";
-import Ghost from "../assets/types/ghost.png";
-import Grass from "../assets/types/grass.png";
-import Ground from "../assets/types/ground.png";
-import Ice from "../assets/types/ice.png";
-import Normal from "../assets/types/normal.png";
-import Poison from "../assets/types/poison.png";
-import Psychic from "../assets/types/psychic.png";
-import Rock from "../assets/types/rock.png";
-import Steel from "../assets/types/steel.png";
-import Water from "../assets/types/water.png";
+import Bug from "../../public/types/bug.png";
+import Dark from "../../public/types/dark.png";
+import Dragon from "../../public/types/dragon.png";
+import Electric from "../../public/types/electric.png";
+import Fairy from "../../public/types/fairy.png";
+import Fighting from "../../public/types/fighting.png";
+import Fire from "../../public/types/fire.png";
+import Flying from "../../public/types/flying.png";
+import Ghost from "../../public/types/ghost.png";
+import Grass from "../../public/types/grass.png";
+import Ground from "../../public/types/ground.png";
+import Ice from "../../public/types/ice.png";
+import Normal from "../../public/types/normal.png";
+import Poison from "../../public/types/poison.png";
+import Psychic from "../../public/types/psychic.png";
+import Rock from "../../public/types/rock.png";
+import Steel from "../../public/types/steel.png";
+import Water from "../../public/types/water.png";
 
 export const PokeTypes = ({ type }) => {
   if (type === "normal") {

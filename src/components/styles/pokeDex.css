@@ -3,7 +3,7 @@
 .pokeDex_Background {
   width: 100%;
   height: 100%;
-  background-image: url("../../assets/pokedex-background.jpg");
+  background-image: url("../../../public/pokedex-img/pokedex-background.jpg");
   filter: blur(2px);
   -webkit-filter: blur(2px);
   background-position: center;

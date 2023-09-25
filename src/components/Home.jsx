@@ -14,7 +14,7 @@ const Home = ({ playSong }) => {
       <div className="home-content">
         <div className="home-menu">
           <img
-            src="./src/assets/home-img/pokemon-logo.png"
+            src="./public/home-img/pokemon-logo.png"
             alt="Logo Pokemon"
             className="home-pkm-logo"
           />
@@ -23,7 +23,7 @@ const Home = ({ playSong }) => {
               <Link onClick={showHome} to={"/"} className="poke-home-link">
                 <div className="poke-home-header">
                   <img
-                    src="./src/assets/home-img/pokeball.png"
+                    src="./public/home-img/pokeball.png"
                     alt="Pokedex"
                     className="menu-button"
                   />
@@ -36,7 +36,7 @@ const Home = ({ playSong }) => {
                 <Link to={"/pokemon"} className="poke-home-link">
                   <div className="poke-home-header">
                     <img
-                      src="./src/assets/home-img/icons8-pokedex-80.png"
+                      src="./public/home-img/icons8-pokedex-80.png"
                       alt="Pokedex"
                       className="menu-button"
                     />
@@ -46,7 +46,7 @@ const Home = ({ playSong }) => {
                 <Link to={"/pokemon/fight"} className="poke-home-link">
                   <div className="poke-home-header">
                     <img
-                      src="./src/assets/home-img/valor.png"
+                      src="./public/home-img/valor.png"
                       alt="Fght"
                       className="menu-button"
                     />
@@ -56,7 +56,7 @@ const Home = ({ playSong }) => {
                 {/* <Link className="poke-home-link">
                   <div className="poke-list-header">
                     <img
-                      src="./src/assets/home-img/highscore.png"
+                      src="./public/home-img/highscore.png"
                       alt=""
                       className="menu-button"
                     />
