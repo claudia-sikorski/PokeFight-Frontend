@@ -30,15 +30,10 @@
   z-index: 2;
   width: 26em;
   height: 13em;
-  background-image: url(../../assets/home-img/home-bg-gif.gif);
+  background-image: url(../../../public/home-img/home-bg-gif.gif);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-}
-
-@font-face {
-  font-family: "pokmon";
-  src: url(../../assets/pokmon/Pokemon-Hollow.ttf) format("truetype");
 }
 
 .poke-home-link {
@@ -62,9 +57,6 @@
 }
 
 .poke-home-link p {
-  /* font-family: "pokmon";
-  color: yellow;
-  font-size: 28px; */
   padding-left: 22px;
   text-align: center;
   letter-spacing: 0.3rem;

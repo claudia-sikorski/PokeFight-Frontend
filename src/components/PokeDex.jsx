@@ -12,9 +12,9 @@ import {
   faInfoCircle,
   faExplosion,
 } from "@fortawesome/free-solid-svg-icons";
-import iconPokedex from "../assets/pokedex-icon.png";
-import iconHeight from "../assets/icon-height.png";
-import iconWeight from "../assets/icon-weight.png";
+import iconPokedex from "../../public/pokedex-img/pokedex-icon.png";
+import iconHeight from "../../public/pokedex-img/icon-height.png";
+import iconWeight from "../../public/pokedex-img/icon-weight.png";
 import { PokeTypes } from "./PokeTypes.jsx";
 
 // PokeDex Component
