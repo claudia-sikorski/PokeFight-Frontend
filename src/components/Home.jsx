@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import "./styles/home.css";
 import { useState } from "react";
+import pokemonLogo from "../../public/home-img/pokemon-logo.png";
+
 const Home = ({ playSong }) => {
   const [start, setStart] = useState(false);
 
@@ -13,11 +15,7 @@ const Home = ({ playSong }) => {
     <>
       <div className="home-content">
         <div className="home-menu">
-          <img
-            src="./public/home-img/pokemon-logo.png"
-            alt="Logo Pokemon"
-            className="home-pkm-logo"
-          />
+          <img src={pokemonLogo} alt="Logo Pokemon" className="home-pkm-logo" />
           <div className="home-link-container">
             {!start && (
               <Link onClick={showHome} to={"/"} className="poke-home-link">
